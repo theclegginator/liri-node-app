@@ -1,0 +1,26 @@
+{
+  "name": "liri-node-app",
+  "version": "1.0.0",
+  "description": "Requirements for LIRI",
+  "main": "liri.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theclegginator/liri-node-app.git"
+  },
+  "keywords": [
+    "[]"
+  ],
+  "author": "\"\"",
+  "license": "ISC",
+  "dependencies": {
+    "node-spotify-api": "~1.1.1",
+    "axios": "^0.18.0",
+    "moment": "~2.24.0",
+    "dotenv": "~7.0.0",
+    "file-system": "^2.2.2"
+  },
+  "homepage": "https://github.com/theclegginator/liri-node-app#readme"
+}
