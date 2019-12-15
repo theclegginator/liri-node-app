@@ -35,7 +35,8 @@ function concert(artist="Periphery") {
     axios
     .get(queryURL)
     .then(function(response) {
-        let data = 
+        if(response.data.length !== 0 && response.data !== undefined) {
+            let data = 
             `Event Info for ${artist} Retrieved:
             ===== Event 1 =====
             Date: ${moment(response.data[0].datetime).format("MM/DD/YYYY")}
@@ -54,10 +55,15 @@ function concert(artist="Periphery") {
             Venue: ${response.data[2].venue.name}
             Country: ${response.data[2].venue.country}
             City: ${response.data[2].venue.city}\n`
-        console.log("\x1b[33m", data)
-        console.log("\x1b[0m", "") // resets terminal color to default.
-        // write the retrieved data to a text file log.
-        writeToFile(data);
+            console.log("\x1b[33m", data)
+            console.log("\x1b[0m", "") // resets terminal color to default.
+            // write the retrieved data to a text file log.
+            writeToFile(data);
+        }
+        else {
+            console.log("\x1b[33m", `No upcoming concerts for ${artist}! :(`)
+            console.log("\x1b[0m", "") // resets terminal color to default.)
+        }
     })
     // If any errors are present, show them in the console log.
     .catch(function(error) {
@@ -194,7 +200,7 @@ switch (liriCommand) {
         3. Look up information on a movie.
             - Use the format node 'liri.js movie-this "<movie name here>"'
             - Will return information like actors, year, and review scores for the movie specified.
-            4. Follow a command from a file named "random.txt" from the same working directory.
+        4. Follow a command from a file named "random.txt" from the same working directory.
             - Use the format node 'liri.js do-what-it-says'
             - You can place a LIRI command and query info into random.text just as you would for any of the above 3 commands.
         ============================
